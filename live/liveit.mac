@@ -1,0 +1,36 @@
+%ifndef _LIVEIT_MAC _H
+%define _LIVEIT_MAC 
+
+
+
+%define live_start db "LIVE_START",0
+
+%define concat(x,y,z) x %+ y %+ z
+%define concat(x,y) x %+ y
+%define QUOTE '
+
+%define string(x) QUOTE x'
+
+;%macro string 1
+;  %assign %%c 1
+;  %assign %%a 0
+;  %assign %%temp_size 0
+;	%assign %%temp_string string_ %1
+;	%strlen %%temp_size %%temp_string
+
+;  %rep   %%temp_size
+;    %substr %%a %%temp_string %%c
+;    db %%a
+;  	%assign  %%c %%c+1 
+;  %endrep
+;%endmacro
+;
+
+%macro live_def 2
+	db 		string(%1),0 ;chaine de charactere
+	dd		%2   ;size
+	dd		%1   ;location	
+%endmacro
+
+
+%endif ;_LIVEIT_MAC

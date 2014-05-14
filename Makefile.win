@@ -1,0 +1,72 @@
+# Project: YoPu
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o PeLib/ComHeaderDirectory.o PeLib/DebugDirectory.o PeLib/ExportDirectory.o PeLib/IatDirectory.o PeLib/MzHeader.o PeLib/PeFile.o PeLib/PeHeader.o PeLib/PeLibAux.o PeLib/RelocationsDirectory.o PeLib/ResourceDirectory.o PeLib/BoundImportDirectory.o pelib/buffer/InputBuffer.o pelib/buffer/OutputBuffer.o live/pack.o $(RES)
+LINKOBJ  = main.o PeLib/ComHeaderDirectory.o PeLib/DebugDirectory.o PeLib/ExportDirectory.o PeLib/IatDirectory.o PeLib/MzHeader.o PeLib/PeFile.o PeLib/PeHeader.o PeLib/PeLibAux.o PeLib/RelocationsDirectory.o PeLib/ResourceDirectory.o PeLib/BoundImportDirectory.o pelib/buffer/InputBuffer.o pelib/buffer/OutputBuffer.o live/pack.o $(RES)
+LIBS =  -L"D:/Dev-Cpp/lib" aplib/aplib.lib  -g3 
+INCS =  -I"D:/Dev-Cpp/include" 
+CXXINCS =  -I"D:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"D:/Dev-Cpp/include/c++/3.4.2/backward"  -I"D:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"D:/Dev-Cpp/include/c++/3.4.2"  -I"D:/Dev-Cpp/include" 
+BIN  = YoPu.exe
+CXXFLAGS = $(CXXINCS)   -fpermissive -g3
+CFLAGS = $(INCS) -fpermissive   -fpermissive -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before YoPu.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "YoPu.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+PeLib/ComHeaderDirectory.o: PeLib/ComHeaderDirectory.cpp
+	$(CPP) -c PeLib/ComHeaderDirectory.cpp -o PeLib/ComHeaderDirectory.o $(CXXFLAGS)
+
+PeLib/DebugDirectory.o: PeLib/DebugDirectory.cpp
+	$(CPP) -c PeLib/DebugDirectory.cpp -o PeLib/DebugDirectory.o $(CXXFLAGS)
+
+PeLib/ExportDirectory.o: PeLib/ExportDirectory.cpp
+	$(CPP) -c PeLib/ExportDirectory.cpp -o PeLib/ExportDirectory.o $(CXXFLAGS)
+
+PeLib/IatDirectory.o: PeLib/IatDirectory.cpp
+	$(CPP) -c PeLib/IatDirectory.cpp -o PeLib/IatDirectory.o $(CXXFLAGS)
+
+PeLib/MzHeader.o: PeLib/MzHeader.cpp
+	$(CPP) -c PeLib/MzHeader.cpp -o PeLib/MzHeader.o $(CXXFLAGS)
+
+PeLib/PeFile.o: PeLib/PeFile.cpp
+	$(CPP) -c PeLib/PeFile.cpp -o PeLib/PeFile.o $(CXXFLAGS)
+
+PeLib/PeHeader.o: PeLib/PeHeader.cpp
+	$(CPP) -c PeLib/PeHeader.cpp -o PeLib/PeHeader.o $(CXXFLAGS)
+
+PeLib/PeLibAux.o: PeLib/PeLibAux.cpp
+	$(CPP) -c PeLib/PeLibAux.cpp -o PeLib/PeLibAux.o $(CXXFLAGS)
+
+PeLib/RelocationsDirectory.o: PeLib/RelocationsDirectory.cpp
+	$(CPP) -c PeLib/RelocationsDirectory.cpp -o PeLib/RelocationsDirectory.o $(CXXFLAGS)
+
+PeLib/ResourceDirectory.o: PeLib/ResourceDirectory.cpp
+	$(CPP) -c PeLib/ResourceDirectory.cpp -o PeLib/ResourceDirectory.o $(CXXFLAGS)
+
+PeLib/BoundImportDirectory.o: PeLib/BoundImportDirectory.cpp
+	$(CPP) -c PeLib/BoundImportDirectory.cpp -o PeLib/BoundImportDirectory.o $(CXXFLAGS)
+
+pelib/buffer/InputBuffer.o: pelib/buffer/InputBuffer.cpp
+	$(CPP) -c pelib/buffer/InputBuffer.cpp -o pelib/buffer/InputBuffer.o $(CXXFLAGS)
+
+pelib/buffer/OutputBuffer.o: pelib/buffer/OutputBuffer.cpp
+	$(CPP) -c pelib/buffer/OutputBuffer.cpp -o pelib/buffer/OutputBuffer.o $(CXXFLAGS)
+
+live/pack.o: live/pack.cpp
+	$(CPP) -c live/pack.cpp -o live/pack.o $(CXXFLAGS)

